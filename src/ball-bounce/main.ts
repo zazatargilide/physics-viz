@@ -23,7 +23,6 @@ if (canvas instanceof HTMLCanvasElement) {
 
         let prevVx = 0;
         let prevVy = 0;
-        let prevY = 0;
 
         class Particle {
             x: number;
@@ -49,7 +48,6 @@ if (canvas instanceof HTMLCanvasElement) {
             update() {
                 prevVx = this.vx;
                 prevVy = this.vy;
-                prevY = this.y;
 
                 const ay = this.gravity;
                 this.vy += ay;
