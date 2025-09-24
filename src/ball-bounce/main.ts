@@ -206,4 +206,6 @@ if (canvas instanceof HTMLCanvasElement) {
     } else {
         console.error('Could not get 2D context for canvas.');
     }
+} else {
+    console.error('The element with ID "myCanvas" was not found or is not a canvas element.');
 }
