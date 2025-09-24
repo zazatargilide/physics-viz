@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bouncing Ball Simulation</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background: #222; 
+        }
+        canvas { 
+            display: block; 
+        }
+        #infoDiv, #controls {
+            position: absolute;
+            color: white;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            text-align: center;
+            pointer-events: none; 
+        }
+        #infoDiv {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #controls {
+            top: 10px;
+            right: 10px;
+        }
+        #controls select,
+        #controls input[type="range"] {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div id="infoDiv"></div>
+    <div id="controls">
+        <label>Mass: <span id="massValue">50</span></label>
+        <input type="range" id="massSlider" min="1" max="150" value="50">
+        
+        <label>Gravity: <span id="gravityValue">Earth</span></label>
+        <select id="gravitySelect">
+            <option value="1.0">Earth (1.0 g)</option>
+            <option value="0.38">Mars (0.38 g)</option>
+            <option value="2.53">Jupiter (2.53 g)</option>
+            <option value="0.17">Moon (0.17 g)</option>
+            <option value="0">Zero Gravity (0 g)</option>
+        </select>
+    </div>
+    <script type="module" src="/src/ball-bounce/main.ts"></script>
+</body>
+</html>

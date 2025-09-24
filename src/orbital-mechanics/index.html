@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbital Mechanics Simulation</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background: #000; 
+        }
+        canvas { 
+            display: block; 
+        }
+        #infoDiv, #controls {
+            position: absolute;
+            color: white;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            text-align: center;
+            pointer-events: none; 
+        }
+        #infoDiv {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #controls {
+            top: 10px;
+            right: 10px;
+        }
+        #controls select,
+        #controls input[type="range"] {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div id="infoDiv"></div>
+    <div id="controls">
+        <label>Star Mass: <span id="starMassValue">5000</span></label>
+        <input type="range" id="starMassSlider" min="1000" max="10000" value="5000">
+        
+        <label>Initial Velocity: <span id="initialVelocityValue">3</span></label>
+        <input type="range" id="initialVelocitySlider" min="1" max="10" step="0.5" value="3">
+    </div>
+    <script type="module" src="/src/orbital-mechanics/main.ts"></script>
+</body>
+</html>
