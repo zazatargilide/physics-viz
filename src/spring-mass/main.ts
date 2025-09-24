@@ -39,24 +39,17 @@ if (canvas instanceof HTMLCanvasElement) {
             }
 
             update(springConstant: number, damping: number, targetY: number) {
-                // Hooke's Law (F = -kx)
                 const displacement = this.y - targetY;
                 const springForce = -springConstant * displacement;
-
-                // Damping Force (F = -cv)
                 const dampingForce = -damping * this.vy;
-
-                // Net force and acceleration
                 const netForce = springForce + dampingForce;
                 const ay = netForce / this.mass;
 
-                // Update velocity and position
                 this.vy += ay;
                 this.y += this.vy;
             }
 
             draw() {
-                // Draw spring line
                 const targetY = canvas.height / 2;
                 ctx.beginPath();
                 ctx.moveTo(this.x, targetY);
@@ -65,7 +58,6 @@ if (canvas instanceof HTMLCanvasElement) {
                 ctx.lineWidth = 2;
                 ctx.stroke();
 
-                // Draw ball
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
                 ctx.fillStyle = this.color;
